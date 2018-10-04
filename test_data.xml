@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DataBlocks>
+	<DataBlock name="data">
+		<Param name="p1">
+			<String>test</String>
+		</Param>
+		<Param name="p2">
+			<String>test2</String>
+		</Param>
+		<Param name="p4">
+			<Double>56.78</Double>
+		</Param>
+		<Param name="p5">
+			<Integer>66666</Integer>
+		</Param>
+		<Param name="p3">
+			<User login="Пупкин" password="Иванович"/>
+		</Param>
+		<ParamLink block_name="data2" param_name="p6" />
+	</DataBlock>
+	
+	<DataBlock name="data2">
+		<Param name="p6">
+			<String>testrrr</String>
+		</Param>
+		<ParamLink block_name="data" param_name="p3" alias="alias"></ParamLink>
+	</DataBlock>
+</DataBlocks>

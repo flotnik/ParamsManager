@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE digester-rules PUBLIC "-//Apache Commons //DTD digester-rules XML V1.0//EN" "http://commons.apache.org/digester/dtds/digester-rules-3.0.dtd">
+<digester-rules>
+	<pattern value="DataBlocks/DataBlock">
+		<object-create-rule classname="com.params_manager.DataBlock" />
+		<set-properties-rule />
+		<set-next-rule methodname="AddBlock" />
+		<pattern value="Param">
+			<object-create-rule classname="com.params_manager.Param" />
+			<set-properties-rule />
+			<set-next-rule methodname="AddParam" />
+			<pattern value="String">
+				<call-method-rule methodname="setValue" paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" />
+			</pattern>
+			<pattern value="Double">
+				<call-method-rule methodname="setValue" paramtypes="java.lang.Double" />
+				<call-param-rule paramnumber="0" />
+			</pattern>
+			<pattern value="Integer">
+				<call-method-rule methodname="setValue" paramtypes="java.lang.Integer" />
+				<call-param-rule paramnumber="0" />
+			</pattern>
+			
+			<!-- INCLUDES -->			
+			<include url="classpath:/include-rules.xml"/>
+			<!-- INCLUDES -->
+						
+		</pattern>
+		<pattern value="ParamLink">
+			<object-create-rule classname="com.params_manager.ParamLink" />
+			<set-properties-rule />
+			<set-next-rule methodname="AddParamLink" />
+		</pattern>
+	</pattern>
+</digester-rules>
